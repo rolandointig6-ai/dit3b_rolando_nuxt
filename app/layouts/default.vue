@@ -1,54 +1,54 @@
 <template>
-  <div>
-    <v-app>
-      <!-- Navigation -->
-<v-navigation-drawer
+    <div>
+        <v-app>
+        <!--Navigation -->
+        <v-navigation-drawer
+        v-model="drawer"
+
+
 
       >
         <v-list>
           <v-list-item
-            prepend-avatar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1MWRThBaP9Rdr4XOHdXlBrzVHKLTaR27kYBJXwErzJ_Mko417m08Jz620QW4QMg6J8maQ4phRF2R9PnkaIGOq5yWePi7pDF1apl_iEPCg2g&s=10"
-            subtitle="DIT-3B"
-            title="Rolando C. Intig Jr."
+            prepend-avatar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp_Pjiy9VFZZniysJsVMeT9MEbwNU0rjGkn38ckspBrqvEVE8Co93HozATg8l7Q9yrFjnA4Ti6D8QLEVXjzFaJQnfw_ORffEWSpCikIkA5Rg&s=10"
+            subtitle="rolandointig6@gmai.com"
+            title="Rolando Intig"
           ></v-list-item>
         </v-list>
 
         <v-divider></v-divider>
 
         <v-list density="compact" nav>
-          <v-list-item prepend-icon="mdi-folder" title="My Files" value="myfiles"></v-list-item>
-          <v-list-item prepend-icon="mdi-account-multiple" title="Shared with me" value="shared"></v-list-item>
-          <v-list-item prepend-icon="mdi-star" title="Starred" value="starred"></v-list-item>
+          <v-list-item to="/dashboard" prepend-icon="mdi mdi-view-dashboard" title="Dashboar" value="dashboard"></v-list-item>
+          <v-list-item to="/Inventory" prepend-icon="mdi mdi-list-box" title="Inventory" value="shared"></v-list-item>
+          <v-list-item to="/Category"prepend-icon="mdi mdi-account-group-outline" title="Category" value="category"></v-list-item>
+          <v-list-item to="/Users"prepend-icon="mdi mdi-account-group-outline" title="Users" value="user"></v-list-item>
         </v-list>
       </v-navigation-drawer>
 
 
-
-      <!-- App Bar -->
-<v-app-bar :elevation="2">
+        <!--Appbar -->
+        <v-app-bar :elevation="2">
   <template v-slot:prepend>
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click.stop="drawer =! drawer"></v-app-bar-nav-icon>
   </template>
 
   <v-app-bar-title>Application Bar</v-app-bar-title>
 </v-app-bar>
- 
 
 
 
-      <v-main>
-        <v-container>   <slot />
-        </v-container>
-      </v-main>
-    </v-app>
-   
-  </div>
+            <v-main>
+                <v-container fluid>
+                <slot />
+                </v-container>
+            </v-main>
+        </v-app>
+    </div>
+
 </template>
 
-<script lang="ts" setup>
+    <script  setup>
+    const drawer = ref(true)
 
-</script>
-
-<style>
-
-</style>
+    </script>
